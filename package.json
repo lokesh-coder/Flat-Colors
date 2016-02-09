@@ -1,0 +1,27 @@
+{
+  "name": "Flat-Colors",
+  "version": "1.0.0",
+  "description": "Over 2K of awesome Flat colors",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lokesh-coder/Flat-Colors.git"
+  },
+  "keywords": [
+    "flat",
+    "colors",
+    "UI"
+  ],
+  "author": "Lokesh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lokesh-coder/Flat-Colors/issues"
+  },
+  "homepage": "https://github.com/lokesh-coder/Flat-Colors",
+  "dependencies": {
+    "unique-random-array": "1.0.0"
+  }
+}
