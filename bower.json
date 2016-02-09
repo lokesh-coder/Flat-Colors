@@ -1,0 +1,22 @@
+{
+  "name": "flat-ui-colors",
+  "version": "1.1.0",
+  "homepage": "https://github.com/lokesh-coder/Flat-Colors",
+  "authors": [
+    "Lokesh <lokesh.aero@gmail.com>"
+  ],
+  "description": "Over 2K flat colors",
+  "main": "src/index.js",
+  "keywords": [
+    "color",
+    "flat"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
