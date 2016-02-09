@@ -1,6 +1,6 @@
 {
-  "name": "Flat-Colors",
-  "version": "1.0.0",
+  "name": "flat-ui-colors",
+  "version": "1.1.0",
   "description": "Over 2K of awesome Flat colors",
   "main": "src/index.js",
   "scripts": {
