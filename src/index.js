@@ -4,7 +4,7 @@ var file = require('easy-file');
 var htmlColorContent = '';
 var htmlFileContent = '';
 
-file.read('export/flat-ui-colors.html', function(contents) {
+file.read('export/flat-ui-colors-skeleton.html', function(contents) {
 	htmlFileContent = contents;
 });
 
@@ -21,7 +21,7 @@ module.exports = {
 			htmlColorContent = htmlColorContent + '<div class="color"><span style="background:' + color + '" class="color-demo"></span><span class="color-name">' + color + '</span></div>';
 		});
 		var content = _.replace(htmlFileContent, '--content--', htmlColorContent);
-		file.write('flat-ui-colors.html', content);
+		file.write('generated/flat-ui-colors.html', content);
 		return content;
 	},
 };
