@@ -10,8 +10,8 @@ npm install --save flat-ui-colors -g
 
 ####Usage
 
-```
-var flatUiColors=require('flat-ui-colors').default; //or
+```javascript
+var flatUiColors = require('flat-ui-colors').default; //or
 import flatUiColors from 'flat-ui-colors'; //for es6 modules
 
 //list all colors
