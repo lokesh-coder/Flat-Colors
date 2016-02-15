@@ -5,7 +5,8 @@ Hand picked **2109** Flat colors for your next project.
 
 ####Install
 ```
-npm install --save flat-ui-colors -g
+npm install --save flat-ui-colors
+npm install --global flat-ui-colors // for cli 
 ```
 
 ####Usage
@@ -26,4 +27,21 @@ flatUiColors.get.many(5); //returns 5 colors
 //export colors to a nice looking html page :)
 flatUiColors.export.html(); // or with a filename
 flatUiColors.export.html('filename');
+```
+
+```shell
+// WIP
+
+//list all colors
+flatc --all
+
+//list random color
+flatc --one
+
+//list random number of colors
+flatc --many 22
+
+//export as html
+flatc --all --html <filename>
+flatc --many 34 --html <filename>
 ```

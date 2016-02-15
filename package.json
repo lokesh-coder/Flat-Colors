@@ -1,6 +1,6 @@
 {
   "name": "flat-ui-colors",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Over 2K of awesome Flat colors",
   "main": "dist/flat-ui-colors.js",
   "scripts": {
@@ -16,7 +16,16 @@
     "type": "git",
     "url": "https://github.com/lokesh-coder/Flat-Colors.git"
   },
-  "keywords": ["flat","UI","color","colors","colour","colours","pattern","hex"],
+  "keywords": [
+    "flat",
+    "UI",
+    "color",
+    "colors",
+    "colour",
+    "colours",
+    "pattern",
+    "hex"
+  ],
   "author": "Lokesh <lokesh.aero@gmail.com>",
   "license": "MIT",
   "bugs": {
@@ -59,5 +68,8 @@
   "babelBoilerplateOptions": {
     "entryFileName": "flat-ui-colors",
     "mainVarName": "flatUiColors"
+  },
+  "dependencies": {
+    "lodash": "^4.3.0"
   }
 }

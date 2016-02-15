@@ -5,8 +5,8 @@ import * as _ from 'lodash';
 export default class HtmlExport {
   constructor(colors) {
     this.colors = colors;
-    this.skeletonFile = path.join(path.dirname(__dirname),'data/skeleton.html');
-    this.buildDir = path.join(path.dirname(__dirname),'build');
+    this.skeletonFile = path.resolve(path.dirname(__filename), '..', 'data/skeleton.html');
+    this.buildDir = process.cwd();
     this.skeletonHtmlContent = '';
     this.colorHtmlContent = '';
     this.readFile();
@@ -20,7 +20,7 @@ export default class HtmlExport {
     if (!fs.existsSync(this.buildDir)) {
       fs.mkdirSync(this.buildDir);
     }
-    let buildFile = this.buildDir + '/' + filename + '.html';
+    let buildFile = path.join(this.buildDir ,filename + '.html');
     let colorHtmlContent = '';
     _.forEach(this.colors, function(color) {
       colorHtmlContent = colorHtmlContent + '<div class="color"><span style="background:' + color + '" class="color-demo"></span><span class="color-name">' + color + '</span></div>';
