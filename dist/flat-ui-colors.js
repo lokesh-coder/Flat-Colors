@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("fs"));
+		module.exports = factory(require("fs"), require("path"));
 	else if(typeof define === 'function' && define.amd)
-		define(["fs"], factory);
+		define(["fs", "path"], factory);
 	else if(typeof exports === 'object')
-		exports["flatUiColors"] = factory(require("fs"));
+		exports["flatUiColors"] = factory(require("fs"), require("path"));
 	else
-		root["flatUiColors"] = factory(root["fs"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_3__) {
+		root["flatUiColors"] = factory(root["fs"], root["path"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_3__, __WEBPACK_EXTERNAL_MODULE_4__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -66,7 +66,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _htmlExport2 = _interopRequireDefault(_htmlExport);
 	
-	var _fetch = __webpack_require__(6);
+	var _fetch = __webpack_require__(7);
 	
 	var _fetch2 = _interopRequireDefault(_fetch);
 	
@@ -94,7 +94,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function(__dirname) {'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -106,7 +106,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var fs = _interopRequireWildcard(_fs);
 	
-	var _lodash = __webpack_require__(4);
+	var _path = __webpack_require__(4);
+	
+	var path = _interopRequireWildcard(_path);
+	
+	var _lodash = __webpack_require__(5);
 	
 	var _ = _interopRequireWildcard(_lodash);
 	
@@ -119,7 +123,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _classCallCheck(this, HtmlExport);
 	
 	    this.colors = colors;
-	    this.skeletonFile = './data/skeleton.html';
+	    this.skeletonFile = path.join(path.dirname(__dirname), 'data/skeleton.html');
+	    this.buildDir = path.join(path.dirname(__dirname), 'build');
 	    this.skeletonHtmlContent = '';
 	    this.colorHtmlContent = '';
 	    this.readFile();
@@ -135,22 +140,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'createFile',
 	    value: function createFile(filename) {
-	      var buildFile = './build/' + filename + '.html';
+	      if (!fs.existsSync(this.buildDir)) {
+	        fs.mkdirSync(this.buildDir);
+	      }
+	      var buildFile = this.buildDir + '/' + filename + '.html';
 	      var colorHtmlContent = '';
 	      _.forEach(this.colors, function (color) {
 	        colorHtmlContent = colorHtmlContent + '<div class="color"><span style="background:' + color + '" class="color-demo"></span><span class="color-name">' + color + '</span></div>';
 	      });
 	      var content = _.replace(this.skeletonHtmlContent, '--content--', colorHtmlContent);
 	      fs.writeFileSync(buildFile, content);
-	      return content;
+	      return buildFile;
 	    }
 	  }, {
 	    key: 'html',
 	    value: function html() {
 	      var filename = arguments.length <= 0 || arguments[0] === undefined ? 'flatuicolors' : arguments[0];
 	
-	      this.createFile(filename);
-	      return true;
+	      return this.createFile(filename);
 	    }
 	  }]);
 	
@@ -159,6 +166,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	exports.default = HtmlExport;
 	;
+	/* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ },
 /* 3 */
@@ -168,6 +176,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 4 */
+/***/ function(module, exports) {
+
+	module.exports = require("path");
+
+/***/ },
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module) {/**
@@ -14902,10 +14916,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	}.call(this));
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)(module)))
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -14921,7 +14935,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14932,7 +14946,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _lodash = __webpack_require__(4);
+	var _lodash = __webpack_require__(5);
 	
 	var _ = _interopRequireWildcard(_lodash);
 	
@@ -14957,6 +14971,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function many() {
 	      var count = arguments.length <= 0 || arguments[0] === undefined ? 1 : arguments[0];
 	
+	      if (!_.isNumber(count)) {
+	        count = 1;
+	      }
 	      return _.sampleSize(_.shuffle(this.colors), count);
 	    }
 	  }]);
