@@ -94,7 +94,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(__filename) {'use strict';
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -123,8 +123,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _classCallCheck(this, HtmlExport);
 	
 	    this.colors = colors;
-	    this.skeletonFile = path.resolve(path.dirname(__filename), '..', 'data/skeleton.html');
-	    this.buildDir = process.cwd();
+	    this.skeletonFile = path.resolve(__dirname, '..','data/skeleton.html');
+	    this.buildDir = path.join(process.cwd(),'flatcolors');
 	    this.skeletonHtmlContent = '';
 	    this.colorHtmlContent = '';
 	    this.readFile();
@@ -140,9 +140,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'createFile',
 	    value: function createFile(filename) {
+	
 	      if (!fs.existsSync(this.buildDir)) {
 	        fs.mkdirSync(this.buildDir);
 	      }
+
+	    	console.log('--bpath--'+path.join(this.buildDir, filename + '.html'));
 	      var buildFile = path.join(this.buildDir, filename + '.html');
 	      var colorHtmlContent = '';
 	      _.forEach(this.colors, function (color) {
@@ -166,7 +169,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	exports.default = HtmlExport;
 	;
-	/* WEBPACK VAR INJECTION */}.call(exports, "/index.js"))
 
 /***/ },
 /* 3 */
