@@ -4,7 +4,7 @@ import * as _ from 'lodash';
 
 export default class HtmlExport {
   constructor(colors) {
-    this.colors = colors;
+    this.colors = _.shuffle(colors);
     this.skeletonFile = path.resolve(__dirname, '..', 'data/skeleton.html');
     this.buildDir = path.join(process.cwd(), 'flatcolors');
     this.skeletonHtmlContent = '';

@@ -1,6 +1,6 @@
 {
   "name": "flat-ui-colors",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Over 2K of awesome Flat colors",
   "main": "dist/flat-ui-colors.js",
   "scripts": {
@@ -70,6 +70,7 @@
     "mainVarName": "flatUiColors"
   },
   "dependencies": {
+    "commander": "^2.9.0",
     "lodash": "^4.3.0"
   }
 }

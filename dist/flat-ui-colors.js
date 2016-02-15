@@ -94,7 +94,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function(__dirname) {'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -122,9 +122,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function HtmlExport(colors) {
 	    _classCallCheck(this, HtmlExport);
 	
-	    this.colors = colors;
-	    this.skeletonFile = path.resolve(__dirname, '..','data/skeleton.html');
-	    this.buildDir = path.join(process.cwd(),'flatcolors');
+	    this.colors = _.shuffle(colors);
+	    this.skeletonFile = path.resolve(__dirname, '..', 'data/skeleton.html');
+	    this.buildDir = path.join(process.cwd(), 'flatcolors');
 	    this.skeletonHtmlContent = '';
 	    this.colorHtmlContent = '';
 	    this.readFile();
@@ -144,8 +144,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (!fs.existsSync(this.buildDir)) {
 	        fs.mkdirSync(this.buildDir);
 	      }
-
-	    	console.log('--bpath--'+path.join(this.buildDir, filename + '.html'));
 	      var buildFile = path.join(this.buildDir, filename + '.html');
 	      var colorHtmlContent = '';
 	      _.forEach(this.colors, function (color) {
@@ -169,6 +167,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	exports.default = HtmlExport;
 	;
+	/* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ },
 /* 3 */
@@ -14960,7 +14959,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function Fetch(colors) {
 	    _classCallCheck(this, Fetch);
 	
-	    this.colors = colors;
+	    this.colors = _.shuffle(colors);
 	  }
 	
 	  _createClass(Fetch, [{

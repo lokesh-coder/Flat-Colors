@@ -2,7 +2,7 @@ import * as _ from 'lodash';
 
 export default class Fetch {
   constructor(colors) {
-    this.colors = colors;
+    this.colors = _.shuffle(colors);
   }
   all() {
     return this.colors;

@@ -29,19 +29,18 @@ flatUiColors.export.html(); // or with a filename
 flatUiColors.export.html('filename');
 ```
 
+####CLI usage
 ```shell
-// WIP
 
 //list all colors
-flatc --all
+flatc -a
 
 //list random color
-flatc --one
+flatc -o
 
 //list random number of colors
-flatc --many 22
+flatc -m 22
 
 //export as html
-flatc --all --html <filename>
-flatc --many 34 --html <filename>
+flatc -h <filename>
 ```
