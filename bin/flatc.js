@@ -13,9 +13,8 @@ program
 if(program.all)
   console.log(flatUiColors.get.all());
 else if(program.one)
-  console.log(flatUiColors.get.many());
+  console.log(flatUiColors.get.one());
 else if(program.many)
   console.log(flatUiColors.get.many(parseInt(program.many)));
-
-if(program.html)
+else if(program.html)
 	flatUiColors.export.html(program.html);

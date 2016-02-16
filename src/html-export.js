@@ -1,11 +1,14 @@
 import * as fs_ from 'fs';
 import * as path_ from 'path';
-import * as _ from 'lodash';
+import _, {
+  shuffle
+}
+from 'lodash';
 
 export default class HtmlExport {
   constructor(colors) {
     this.colors = _.shuffle(colors);
-    this.skeletonFile = path_.resolve(path_.dirname(__filename), '..','data/skeleton.html');
+    this.skeletonFile = path_.resolve(path_.dirname(__filename), '..', 'data/skeleton.html');
     this.buildDir = path_.join(process.cwd(), 'flatcolors');
     this.skeletonHtmlContent = '';
     this.colorHtmlContent = '';

@@ -2,7 +2,7 @@ import {
   colors
 }
 from '../data/colors';
-import HtmlExport from './htmlExport';
+import HtmlExport from './html-export';
 import Fetch from './fetch';
 
 let flatUiColors = {

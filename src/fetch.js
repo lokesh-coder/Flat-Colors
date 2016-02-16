@@ -1,4 +1,7 @@
-import * as _ from 'lodash';
+import _, {
+  shuffle, isNumber, sampleSize
+}
+from 'lodash';
 
 export default class Fetch {
   constructor(colors) {
@@ -6,6 +9,9 @@ export default class Fetch {
   }
   all() {
     return this.colors;
+  }
+  one() {
+    return this.many(1);
   }
   many(count = 1) {
     if (!_.isNumber(count)) {
