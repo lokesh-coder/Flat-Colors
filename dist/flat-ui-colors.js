@@ -57,7 +57,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+		value: true
 	});
 	
 	var _colors = __webpack_require__(1);
@@ -70,11 +70,35 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _fetch2 = _interopRequireDefault(_fetch);
 	
+	var _fs = __webpack_require__(3);
+	
+	var fs_ = _interopRequireWildcard(_fs);
+	
+	var _path = __webpack_require__(4);
+	
+	var path_ = _interopRequireWildcard(_path);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	console.log('path: 0 #', __dirname + 'data/skeleton.html');
+	console.log('path: 1 #', __dirname);
+	console.log('path: 2 #', __filename);
+	console.log('path: 3 #', process.cwd());
+	console.log('path: 4 #', path_.dirname());
+	console.log('path: 5 #', path_.dirname(__dirname));
+	console.log('path: 6 #', path_.resolve('../'));
+	console.log('path: 7 #', fs_.existsSync('./data/skeleton.html'));
+	console.log('path: 8 #', fs_.existsSync('./data'));
+	console.log('path: 9 #', fs_.existsSync(path_.dirname(__dirname) + './data'));
+	console.log('path: 10 #', fs_.existsSync(path_.dirname(__dirname) + 'data'));
+	console.log('path: 11 #', fs_.readdirSync(path_.dirname(__dirname)));
+	console.log('path: 12 #', fs_.realpathSync(__filename));
+	
 	var flatUiColors = {
-	  export: new _htmlExport2.default(_colors.colors),
-	  get: new _fetch2.default(_colors.colors)
+		export: new _htmlExport2.default(_colors.colors),
+		get: new _fetch2.default(_colors.colors)
 	};
 	
 	exports.default = flatUiColors;
@@ -94,7 +118,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(__dirname) {'use strict';
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -123,7 +147,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _classCallCheck(this, HtmlExport);
 	
 	    this.colors = _.shuffle(colors);
-	    this.skeletonFile = path_.resolve(path_.dirname(__dirname), 'data/skeleton.html');
+	    this.skeletonFile = path_.resolve(path_.dirname(__filename), '..', 'data/skeleton.html');
 	    this.buildDir = path_.join(process.cwd(), 'flatcolors');
 	    this.skeletonHtmlContent = '';
 	    this.colorHtmlContent = '';
@@ -167,7 +191,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	exports.default = HtmlExport;
 	;
-	/* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ },
 /* 3 */

@@ -77,6 +77,10 @@ function build() {
         }]
       },
       target: 'node',
+      node: {
+        __filename: false,
+        __dirname: false
+      },
       devtool: 'source-map'
     }))
     .pipe(gulp.dest(destinationFolder))
@@ -168,6 +172,11 @@ function testBrowser() {
         ]
       },
       target: 'node',
+      context: __dirname,
+      node: {
+        __filename: false,
+        __dirname: false
+      },
       plugins: [
         // By default, webpack does `n=>n` compilation with entry files. This concatenates
         // them into a single chunk.
@@ -211,7 +220,8 @@ gulp.task('lint-gulpfile', lintGulpfile);
 gulp.task('lint', ['lint-src', 'lint-test', 'lint-gulpfile']);
 
 // Build two versions of the library
-gulp.task('build', ['lint', 'clean'], build);
+// gulp.task('build', ['lint', 'clean'], build);
+gulp.task('build', ['clean'], build);
 
 // Lint and run our tests
 gulp.task('test', ['lint'], test);
