@@ -94,7 +94,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(__dirname) {'use strict';
+	/* WEBPACK VAR INJECTION */(function(__filename) {'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -104,11 +104,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _fs = __webpack_require__(3);
 	
-	var fs = _interopRequireWildcard(_fs);
+	var fs_ = _interopRequireWildcard(_fs);
 	
 	var _path = __webpack_require__(4);
 	
-	var path = _interopRequireWildcard(_path);
+	var path_ = _interopRequireWildcard(_path);
 	
 	var _lodash = __webpack_require__(5);
 	
@@ -123,8 +123,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _classCallCheck(this, HtmlExport);
 	
 	    this.colors = _.shuffle(colors);
-	    this.skeletonFile = path.resolve(__dirname, '..', 'data/skeleton.html');
-	    this.buildDir = path.join(process.cwd(), 'flatcolors');
+	    this.skeletonFile = path_.resolve(path_.dirname(__filename), '..', 'data/skeleton.html');
+	    this.buildDir = path_.join(process.cwd(), 'flatcolors');
 	    this.skeletonHtmlContent = '';
 	    this.colorHtmlContent = '';
 	    this.readFile();
@@ -133,7 +133,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  _createClass(HtmlExport, [{
 	    key: 'readFile',
 	    value: function readFile() {
-	      this.skeletonHtmlContent = fs.readFileSync(this.skeletonFile, {
+	      this.skeletonHtmlContent = fs_.readFileSync(this.skeletonFile, {
 	        encoding: 'utf8'
 	      });
 	    }
@@ -141,16 +141,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: 'createFile',
 	    value: function createFile(filename) {
 	
-	      if (!fs.existsSync(this.buildDir)) {
-	        fs.mkdirSync(this.buildDir);
+	      if (!fs_.existsSync(this.buildDir)) {
+	        fs_.mkdirSync(this.buildDir);
 	      }
-	      var buildFile = path.join(this.buildDir, filename + '.html');
+	      var buildFile = path_.join(this.buildDir, filename + '.html');
 	      var colorHtmlContent = '';
 	      _.forEach(this.colors, function (color) {
 	        colorHtmlContent = colorHtmlContent + '<div class="color"><span style="background:' + color + '" class="color-demo"></span><span class="color-name">' + color + '</span></div>';
 	      });
 	      var content = _.replace(this.skeletonHtmlContent, '--content--', colorHtmlContent);
-	      fs.writeFileSync(buildFile, content);
+	      fs_.writeFileSync(buildFile, content);
 	      return buildFile;
 	    }
 	  }, {
@@ -167,7 +167,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	exports.default = HtmlExport;
 	;
-	/* WEBPACK VAR INJECTION */}.call(exports, "/"))
+	/* WEBPACK VAR INJECTION */}.call(exports, "/index.js"))
 
 /***/ },
 /* 3 */
