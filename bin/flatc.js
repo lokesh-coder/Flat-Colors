@@ -8,6 +8,7 @@ program
   .option('-o, --one', 'List random color')
   .option('-m, --many [count]', 'List random number of colors')
   .option('-h, --html [name]', 'Export as html')
+  .option('-c, --collection [name]', 'Get collection')
   .parse(process.argv);
 
 if(program.all)
@@ -17,4 +18,6 @@ else if(program.one)
 else if(program.many)
   console.log(flatUiColors.get.many(parseInt(program.many)));
 else if(program.html)
-	flatUiColors.export.html(program.html);
+  flatUiColors.export.html(program.html);
+else if(program.collection)
+	flatUiColors.collection.get(program.collection);

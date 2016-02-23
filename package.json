@@ -1,6 +1,6 @@
 {
   "name": "flat-ui-colors",
-  "version": "2.0.8", 
+  "version": "2.1.8", 
   "description": "Over 2K of awesome Flat colors",
   "main": "dist/flat-ui-colors.js",
   "scripts": {

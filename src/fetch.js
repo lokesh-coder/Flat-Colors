@@ -11,7 +11,7 @@ export default class Fetch {
     return this.colors;
   }
   one() {
-    return this.many(1);
+    return _.shuffle(this.colors)[0];
   }
   many(count = 1) {
     if (!_.isNumber(count)) {
