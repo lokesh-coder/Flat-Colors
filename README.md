@@ -3,13 +3,13 @@ Flat UI Colors
 
 Hand picked **2109** Flat colors for your next project.
 
-####Install
+#### Install
 ```
 $ npm install --save flat-ui-colors
 $ npm install --global flat-ui-colors // for cli 
 ```
 
-####Usage
+#### Usage
 
 ```javascript
 var flatUiColors = require('flat-ui-colors').default; //or
@@ -37,7 +37,7 @@ flatUiColors.collection.get('blue');
 
 ```
 
-####CLI usage
+#### CLI usage
 
 ```shell
 
@@ -56,6 +56,6 @@ $ flatc -c <colorname>
 //export as html
 $ flatc -h <filename>
 ```
-####Example
+#### Example
 
 ![Image of Falt Colors](example.png)
